@@ -15,15 +15,13 @@ app.use(express.static('public'));
 
 // MongoDB Connection with better error handling
 
-mongoose.connect(process.env.MONGO_URI, {
+mongoose.connect("mongodb+srv://bittugade280305:Sujith@2005@cluster0.1iym1.mongodb.net/smartcartDB?retryWrites=true&w=majority&appName=Cluster0", {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
 .then(() => console.log('✅ Connected to MongoDB Atlas'))
-.catch(err => {
-    console.error('❌ MongoDB connection error:', err);
-    process.exit(1);
-});
+.catch(err => console.error('❌ MongoDB connection error:', err));
+
 
 // User Model
 const userSchema = new mongoose.Schema({
