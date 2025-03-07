@@ -120,7 +120,7 @@ app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 
 
-fetch("https://your-backend-name.onrender.com/api/register", {
+fetch("https://backend.onrender.com/api/register", {
   method: "POST",
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify(userData),
