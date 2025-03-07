@@ -14,11 +14,15 @@ app.use(express.json());
 app.use(express.static('public'));
 
 // MongoDB Connection with better error handling
-mongoose.connect(process.env.MONGO_URI,)
-.then(() => console.log('Connected to MongoDB'))
+
+mongoose.connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
+.then(() => console.log('✅ Connected to MongoDB Atlas'))
 .catch(err => {
-    console.error('MongoDB connection error:', err);
-    process.exit(1); // Exit if cannot connect to database
+    console.error('❌ MongoDB connection error:', err);
+    process.exit(1);
 });
 
 // User Model
