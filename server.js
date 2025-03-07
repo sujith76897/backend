@@ -3,13 +3,13 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const cors = require('cors');
+const cors = require('cors'); // ✅ Keep only this import
 const path = require('path');
 
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors()); // ✅ Keep only this instance
 app.use(express.json());
 app.use(express.static('public'));
 
@@ -118,8 +118,7 @@ app.get('*', (req, res) => {
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
-
-
+// Fetch request
 fetch("https://backend-1gnl.onrender.com/api/register", {
   method: "POST",
   headers: { "Content-Type": "application/json" },
@@ -128,8 +127,3 @@ fetch("https://backend-1gnl.onrender.com/api/register", {
 .then(response => response.json())
 .then(data => console.log(data))
 .catch(error => console.error("Error:", error));
-
-
-const cors = require("cors");
-app.use(cors());
-
