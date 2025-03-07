@@ -117,3 +117,14 @@ app.get('*', (req, res) => {
 
 const PORT = process.env.PORT || 5500;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+
+
+fetch("https://your-backend-name.onrender.com/api/register", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(userData),
+})
+.then(response => response.json())
+.then(data => console.log(data))
+.catch(error => console.error("Error:", error));
